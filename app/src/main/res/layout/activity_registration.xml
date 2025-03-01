@@ -10,7 +10,7 @@
 
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/rgRePassword"
         android:layout_width="260dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.433" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profilerg"
+        android:id="@+id/rgProfile"
         android:layout_width="151dp"
         android:layout_height="130dp"
         android:src="@drawable/photocamera"
@@ -142,7 +142,7 @@
         android:text="D:\SWE 250, Project\app\src\main\res\layout\activity_registration.xml" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/rgEmail"
         android:layout_width="260dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -161,7 +161,7 @@
 
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/rgPassword"
         android:layout_width="260dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -178,7 +178,7 @@
         app:layout_constraintVertical_bias="0.661" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signUpButton"
         android:layout_width="303dp"
         android:layout_height="57dp"
         android:backgroundTint="@color/black"
@@ -192,7 +192,7 @@
         app:layout_constraintVertical_bias="0.89" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/loginButton"
         android:layout_width="174dp"
         android:layout_height="36dp"
         android:gravity="center"
@@ -218,7 +218,7 @@
         tools:layout_editor_absoluteX="159dp" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/rgUserName"
         android:layout_width="260dp"
         android:layout_height="52dp"
         android:ems="10"
