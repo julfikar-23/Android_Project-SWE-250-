@@ -78,7 +78,8 @@ public class login extends AppCompatActivity {
                     progressDialog.dismiss();
                     password.setError("More than 6 characters needed.");
                     Toast.makeText(login.this, "Password must need longer than six characters.", Toast.LENGTH_SHORT).show();
-                }else {
+                }
+                else {
                     auth.signInWithEmailAndPassword(Email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
