@@ -25,6 +25,7 @@ public class splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
+        getSupportActionBar().hide();
 
         logo = findViewById(R.id.logoimg);
         name = findViewById(R.id.logonameimg);

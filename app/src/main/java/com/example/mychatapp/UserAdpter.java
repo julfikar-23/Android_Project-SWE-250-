@@ -1,5 +1,7 @@
 package com.example.mychatapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +17,11 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserAdpter extends RecyclerView.Adapter<UserAdpter.viewholder> {
-    MainActivity mainActivity;
+    Context mainActivity;
     ArrayList<Users> usersArrayList;
-
     public UserAdpter(MainActivity mainActivity, ArrayList<Users> usersArrayList) {
-        this.mainActivity = mainActivity;
-        this.usersArrayList = usersArrayList;
+        this.mainActivity=mainActivity;
+        this.usersArrayList=usersArrayList;
     }
 
     @NonNull
@@ -32,10 +33,24 @@ public class UserAdpter extends RecyclerView.Adapter<UserAdpter.viewholder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserAdpter.viewholder holder, int position) {
+
         Users users = usersArrayList.get(position);
         holder.username.setText(users.userName);
         holder.userstatus.setText(users.status);
         Picasso.get().load(users.profilepic).into(holder.userimg);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mainActivity, chatwindo.class);
+                intent.putExtra("nameeee",users.getUserName());
+                intent.putExtra("reciverImg",users.getProfilepic());
+                intent.putExtra("uid",users.getUserId());
+                mainActivity.startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override

@@ -2,4 +2,11 @@
 <resources>
     <item name="yesbnt" type="id" />
     <item name="nobnt" type="id" />
+    <item name="loginbut" type="id" />
+    <item name="rgusername" type="id" />
+    <item name="rgemail" type="id" />
+    <item name="signupbutton" type="id" />
+    <item name="profilerg0" type="id" />
+    <item name="rgrepassword" type="id" />
+    <item name="rgpassword" type="id" />
 </resources>

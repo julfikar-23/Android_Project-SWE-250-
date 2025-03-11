@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
 
         database=FirebaseDatabase.getInstance();
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Dialog dialog = new Dialog(MainActivity.this,R.style.dialoge);
                 dialog.setContentView(R.layout.dialog_layout);
-                Button no,yes;
+                Button yes, no;
                 yes = dialog.findViewById(R.id.yesbnt);
                 no = dialog.findViewById(R.id.nobnt);
                 yes.setOnClickListener(new View.OnClickListener() {

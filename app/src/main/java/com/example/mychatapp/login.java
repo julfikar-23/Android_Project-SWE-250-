@@ -37,6 +37,7 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please Wait...");
