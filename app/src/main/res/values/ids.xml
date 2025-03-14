@@ -9,4 +9,6 @@
     <item name="profilerg0" type="id" />
     <item name="rgrepassword" type="id" />
     <item name="rgpassword" type="id" />
+    <item name="editTexLogEmail" type="id" />
+    <item name="editTextLogPassword" type="id" />
 </resources>

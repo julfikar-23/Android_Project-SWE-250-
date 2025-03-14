@@ -1,5 +1,6 @@
 
 package com.example.mychatapp;
+
 public class Users {
     String profilepic,mail,userName,password,userId,lastMessage,status;
 

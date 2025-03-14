@@ -6,7 +6,6 @@ public class msgModelclass {
     long timeStamp;
 
     public msgModelclass() {
-
     }
 
     public msgModelclass(String message, String senderid, long timeStamp) {

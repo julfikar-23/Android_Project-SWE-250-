@@ -1,5 +1,6 @@
 package com.example.mychatapp;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,31 +30,28 @@ public class login extends AppCompatActivity {
     Button button;
     EditText email,password;
     FirebaseAuth auth;
-    String emailPattern= "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     android.app.ProgressDialog progressDialog;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().hide();
-
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Please Wait...");
         progressDialog.setCancelable(false);
-
-        auth=FirebaseAuth.getInstance();
-        button=findViewById(R.id.logbutton);
-        email=findViewById(R.id.editTextlogEmail);
-        password=findViewById(R.id.editTextlogPassword);
-
+        getSupportActionBar().hide();
+        auth = FirebaseAuth.getInstance();
+        button = findViewById(R.id.logbutton);
+        email = findViewById(R.id.editTexLogEmail);
+        password = findViewById(R.id.editTextLogPassword);
         logsignup = findViewById(R.id.logsignup);
 
         logsignup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(login.this, registration.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this,registration.class);
                 startActivity(intent);
                 finish();
             }
@@ -62,39 +60,36 @@ public class login extends AppCompatActivity {
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String Email= email.getText().toString();
-                String pass= password.getText().toString();
+            public void onClick(View v) {
+                String Email = email.getText().toString();
+                String pass = password.getText().toString();
 
-                if(TextUtils.isEmpty(Email)){
+                if ((TextUtils.isEmpty(Email))){
                     progressDialog.dismiss();
-                    Toast.makeText(login.this, "Enter The Email.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Enter The Email", Toast.LENGTH_SHORT).show();
                 }else if (TextUtils.isEmpty(pass)){
                     progressDialog.dismiss();
-                    Toast.makeText(login.this, "Enter The Password.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Enter The Password", Toast.LENGTH_SHORT).show();
                 }else if (!Email.matches(emailPattern)){
                     progressDialog.dismiss();
-                    email.setError("Provide Valid Email Address.");
+                    email.setError("Give Proper Email Address");
                 }else if (password.length()<6){
                     progressDialog.dismiss();
-                    password.setError("More than 6 characters needed.");
-                    Toast.makeText(login.this, "Password must need longer than six characters.", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                    password.setError("More Then Six Characters");
+                    Toast.makeText(login.this, "Password Needs To Be Longer Then Six Characters", Toast.LENGTH_SHORT).show();
+                }else {
                     auth.signInWithEmailAndPassword(Email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()){
                                 progressDialog.show();
                                 try {
-                                    Intent intent=new Intent(login.this,MainActivity.class);
+                                    Intent intent = new Intent(login.this , MainActivity.class);
                                     startActivity(intent);
                                     finish();
-
                                 }catch (Exception e){
                                     Toast.makeText(login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
-
                             }else {
                                 Toast.makeText(login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -106,10 +101,5 @@ public class login extends AppCompatActivity {
             }
         });
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
 }

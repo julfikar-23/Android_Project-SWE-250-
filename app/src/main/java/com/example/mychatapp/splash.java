@@ -15,18 +15,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class splash extends AppCompatActivity {
-
     ImageView logo;
     TextView name, own1, own2;
     Animation topAnim, bottomAnim;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
-
         logo = findViewById(R.id.logoimg);
         name = findViewById(R.id.logonameimg);
         own1 = findViewById(R.id.ownone);
@@ -40,16 +38,10 @@ public class splash extends AppCompatActivity {
         own1.setAnimation(bottomAnim);
         own2.setAnimation(bottomAnim);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(splash.this, MainActivity.class);
+                Intent intent = new Intent(splash.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }

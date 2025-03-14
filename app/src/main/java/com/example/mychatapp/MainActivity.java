@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-
         database=FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
         cumbut = findViewById(R.id.camBut);
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Dialog dialog = new Dialog(MainActivity.this,R.style.dialoge);
                 dialog.setContentView(R.layout.dialog_layout);
-                Button yes, no;
+                Button no,yes;
                 yes = dialog.findViewById(R.id.yesbnt);
                 no = dialog.findViewById(R.id.nobnt);
                 yes.setOnClickListener(new View.OnClickListener() {
